@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var speed : float = 200.0
+@export var speed : float = 150.0
 @export var jump_velocity : float = -150.0
 @export var double_jump_velocity : float = -100.0
 
@@ -23,8 +23,6 @@ func _physics_process(delta):
 	else:
 		has_double_jumped = false
 		
-		if was_in_air == true:
-			land()
 			
 		was_in_air = false
 
@@ -42,7 +40,7 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down")
 	
-	if direction.x != 0 && animated_sprite.animation != "jump_end":
+	if direction.x != 0:
 		velocity.x = direction.x * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
@@ -79,11 +77,9 @@ func double_jump():
 	animation_locked = true
 	has_double_jumped = true
 
-func land():
-	animated_sprite.play("jump_end")
-	animation_locked = true
+
 
 
 func _on_animated_sprite_2d_animation_finished():
-	if(["jump_end", "jump_start", "jump_double"].has(animated_sprite.animation)):
+	if(["jump_start", "jump_double"].has(animated_sprite.animation)):
 		animation_locked = false
