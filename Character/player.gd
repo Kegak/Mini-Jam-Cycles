@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var speed : float = 150.0
 @export var jump_velocity : float = -150.0
-@export var double_jump_velocity : float = -100.0
+@export var double_jump_velocity : float = -150.0
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
@@ -72,7 +72,7 @@ func jump():
 	animation_locked = true
 
 func double_jump():
-	velocity.y = double_jump_velocity
+	velocity.y += double_jump_velocity
 	animated_sprite.play("jump_double")
 	animation_locked = true
 	has_double_jumped = true
@@ -83,3 +83,10 @@ func double_jump():
 func _on_animated_sprite_2d_animation_finished():
 	if(["jump_start", "jump_double"].has(animated_sprite.animation)):
 		animation_locked = false
+	
+
+
+
+
+func _on_collision_shape_2d_tree_exited():
+	get_tree().change_scene_to_file("res://Mini-Jam-Cycles/Levels/desert_level.tscn")

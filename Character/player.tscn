@@ -98,7 +98,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vaa6d")
 }, {
-"duration": 1.0,
+"duration": 99.0,
 "texture": SubResource("AtlasTexture_l3tmp")
 }],
 "loop": true,
@@ -146,7 +146,7 @@ script = ExtResource("1_1iwx0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1hq75")
-animation = &"jump_double"
+animation = &"jump_loop"
 autoplay = "idle"
 centered = false
 offset = Vector2(-15, -25)

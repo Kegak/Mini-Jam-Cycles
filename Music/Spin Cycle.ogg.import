@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://jwuc8sdhpwf1"
+path="res://.godot/imported/Spin Cycle.ogg-7aedf6a3991ad0117aaf8c426ff00f51.oggvorbisstr"
+
+[deps]
+
+source_file="res://Mini-Jam-Cycles/Music/Spin Cycle.ogg"
+dest_files=["res://.godot/imported/Spin Cycle.ogg-7aedf6a3991ad0117aaf8c426ff00f51.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

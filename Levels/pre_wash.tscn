@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6exn42r2vcvr"]
+
+[ext_resource type="Script" path="res://Timer.gd" id="1_st7to"]
+[ext_resource type="Texture2D" uid="uid://doodhctptw5q7" path="res://Mini-Jam-Cycles/Art/blue_back.png" id="2_7w5mq"]
+[ext_resource type="Texture2D" uid="uid://b3n0wmny0bgpc" path="res://Mini-Jam-Cycles/Art/levelBanner1.png" id="2_ehfjs"]
+
+[node name="Pre-Wash" type="Node2D"]
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+script = ExtResource("1_st7to")
+
+[node name="BlueBack" type="Sprite2D" parent="."]
+position = Vector2(385, 60.5)
+scale = Vector2(27.25, 20.1875)
+texture = ExtResource("2_7w5mq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(211, 117)
+texture = ExtResource("2_ehfjs")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite2D"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(211, 117)
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
